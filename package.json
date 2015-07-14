@@ -1,0 +1,17 @@
+{
+  "name": "alfresco-node-client",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "test": "NODE_ENV=test ALFRESCO_USER=admin ALFRESCO_PASSWORD=admin ALFRESCO_HOST=alfresco node_modules/.bin/mocha ./test/unit/* --reporter spec"
+  },
+  "dependencies": {
+    "bluebird": "^2.9.24",
+    "superagent": "~1.2.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5",
+    "run-sequence": "^1.0.2",
+    "should": "^6.0.3"
+  }
+}
