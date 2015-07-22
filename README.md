@@ -1,13 +1,13 @@
+# Documentation
 
-
-# Alfresco Vagrant 
+# Alfresco Vagrant
 
 ## Prereq
 
 * Virtualbox
 * Vagrant
 
-## get start 
+## get start
 
 * vagrant up
 * vagrant ssh

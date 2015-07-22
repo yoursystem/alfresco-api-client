@@ -26,7 +26,7 @@ describe("Process alfresco site API test", function() {
 
 
   it("Process get site by shortname", function(done) {
-    siteByshortname(config.alfresco.host, 'podnety', alf_ticket).then( function(siteOnj){
+    siteByshortname(config.alfresco.host, alf_ticket, 'podnety').then( function(siteOnj){
       site = siteOnj;
       done();
     },done);
@@ -34,8 +34,7 @@ describe("Process alfresco site API test", function() {
 
   it("create test folder site via API", function(done) {
     //var nodeValue = node.properties['alfcmis:nodeRef'].value;
-
-    createFolderAPI(config.alfresco.host, site.node ,  alf_ticket).then( function(siteOnj){
+    createFolderAPI(config.alfresco.host, alf_ticket, site.node, 'test', 'test-title' , 'test-description').then( function(siteOnj){
       done();
     },done);
   })
