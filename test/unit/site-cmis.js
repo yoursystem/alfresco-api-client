@@ -24,7 +24,7 @@ describe("Alfresco site CMIS test", function() {
   });
 
   it("browseFolderTree root", function(done) {
-    browser(config.alfresco.host,alf_ticket,  null, alfresco.CMIS_SELECTOR_FOLDER_TREE).then( function(root){
+    browser(config.alfresco.host,alf_ticket, null, alfresco.CMIS_SELECTOR_FOLDER_TREE).then( function(root){
       done();
     },done);
   });

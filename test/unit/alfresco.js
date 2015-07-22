@@ -1,4 +1,4 @@
-var alfresco = require('./../index');
+var alfresco = require('../../index');
 var alf_ticket = '';
 
 describe("Alfresco Client", function() {
