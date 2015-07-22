@@ -1,1 +1,1 @@
-module.exports = require('lib/alfresco.js')
+module.exports = require('./lib/alfresco.js')
