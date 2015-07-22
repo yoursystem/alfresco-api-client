@@ -1,5 +1,5 @@
 {
-  "name": "alfresco-node-client",
+  "name": "alfresco-api-client",
   "version": "0.0.0",
   "private": true,
   "scripts": {
