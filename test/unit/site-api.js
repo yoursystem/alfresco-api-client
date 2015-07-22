@@ -4,12 +4,9 @@ var mongoose = require('../../../src/server/mongoose');
 var bootstrap = require('../../../src/server/bootstrap');
 var Promise = require('bluebird');
 var login = require('./../../../src/server/services/alfresco/auth/login');
-var siteByshortname = require('./../../../src/server/services/alfresco/sites/get-site-by-shortname');
-var createFolderAPI = require('./../../../src/server/services/alfresco/sites/create-folder');
-
-
-
-
+var siteByshortname = require('./../../../src/server/services/alfresco/api/get-site-by-shortname');
+var createFolderAPI = require('./../../../src/server/services/alfresco/api/create-folder');
+var createDocumentAPI = require('./../../../src/server/services/alfresco/api/create-document');
 
 var alf_ticket = '';
 var site = null;
@@ -33,6 +30,13 @@ describe("Process alfresco site API test", function() {
   });
 
   it("create test folder site via API", function(done) {
+    //var nodeValue = node.properties['alfcmis:nodeRef'].value;
+    createFolderAPI(config.alfresco.host, alf_ticket, site.node, 'test', 'test-title' , 'test-description').then( function(siteOnj){
+      done();
+    },done);
+  })
+
+  it("create test file site via API", function(done) {
     //var nodeValue = node.properties['alfcmis:nodeRef'].value;
     createFolderAPI(config.alfresco.host, alf_ticket, site.node, 'test', 'test-title' , 'test-description').then( function(siteOnj){
       done();
