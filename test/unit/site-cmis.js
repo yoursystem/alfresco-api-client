@@ -67,7 +67,7 @@ describe("Alfresco site CMIS test", function() {
   });
 
   it("browseFolder /sites/podnety/documentLibrary", function(done) {
-    browser(config.alfresco.host, alf_ticket, '/sites/podnety/documentLibrary', alfresco.CMIS_SELECTOR_FOLDE).then( function(siteOnj){
+    browser(config.alfresco.host, alf_ticket, '/sites/podnety/documentLibrary', alfresco.CMIS_SELECTOR_FOLDER).then( function(siteOnj){
       done();
     },done);
   });
