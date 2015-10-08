@@ -1,45 +1,97 @@
 # Documentation
 
-# Alfresco Vagrant
+## Config
 
-## Prereq
+var config = {
+      "host": "",
+      "user": "",
+      "password": ""
+};
 
-* Virtualbox
-* Vagrant
+## Login
+   alfresco.loginPromise(config).then(function(alf_ticket){
+    console.log(alf_ticket)
+   })
 
-## get start
 
-* vagrant up
-* vagrant ssh
-* sudo service alfersco status
-* sudo service alfresco start
+## Validate ticket
+   alfresco.ticket(function(result){
+    console.log(result)
+});
 
-## URL
+## Get thumbnail
+   alfresco.getThumbnailsContentPromise('workspace://SpacesStore/102e7e21-26fd-4f5f-9413-499bed115ae8', 'imgpreview').then(function(result) {
+     console.log(result);
+   }, function(err){console.log(err)});
 
-### Share
 
-* http://alfresco/share
-* http://alfresco-50d:8080/share
-* http://alfresco:8080/share 
+## Get site by shortname"
+   alfresco.getSiteByShortnamePromise(shortname).then( function(site){
+       console.log(site);
+   },function(err){console.log(err)});
+ });
 
-### Share
 
-* http://alfresco/alfresco
-* http://alfresco-50d:8080/alfresco
-* http://alfresco:8080/alfresco
+## Process get site document Library
+   alfresco.getDocumentLibraryForSiteByShortname(shortname).then( function(result){
+      console.log(result);
+   },function(err){console.log(err)});
 
-## Users
 
-### Alfresco user
 
-user: admin
-password: admin
+## create folder site via API
 
-### DB Postgres user for Alfresco
+   alfresco.createFolderPromise( nodeRef, 'test', 'test-title' , 'test-description').then( function(result){
+     console.log(result);
+   },function(err){console.log(err)});
+ })
 
-user: alfresco
-password: alfresco
+## create file site via API"
+   var path = PATHTOFILE;
+   alfresco.createDocumentPromise(folder.nodeRef, path).then( function(file){
+      console.log(result);
+   },function(err){console.log(err)});
+ })
 
-### System user
 
-alfresco
+## Logout ticket
+   alfresco.logout(function(result){
+    console.log(result);
+   });
+
+
+# Use cases
+
+## Get content
+
+  alfresco.loginPromise(config).then(function(alf_ticket) {
+    console.log("GET content for alfresco nodeRef -> " + nodeRef);
+    alfresco.getContentPromise(nodeRef).then(function(result) {
+       console.log(result);
+    }, function(err) {
+      console.log(err);
+    });
+  }
+
+
+## Get content URL
+
+    alfresco.loginPromise(config).then(function(alf_ticket) {
+      console.log("GET content for alfresco nodeRef -> " + nodeRef);
+      alfresco.getContentUrl(nodeRef)
+    }, function(err) {
+      console.log(err);
+    });
+
+
+
+## Get thumbnail
+
+   alfresco.loginPromise(config).then(function(alf_ticket) {
+      console.log("GET content for alfresco nodeRef -> " + nodeRef);
+      alfresco.getContentPromise(nodeRef).then(function(result) {
+         console.log(result);
+      }, function(err) {
+        console.log(err);
+      });
+    }
