@@ -34,6 +34,18 @@ var config = {
    }, function(err){console.log(err)});
 ```
 
+
+
+## Get children
+
+```
+alfresco.getChildrenPromise(nodeRef).then(function (files) {
+            console.log(file);
+            return files;
+});
+```
+
+
 ## Get site by shortname
 
 ```
@@ -56,11 +68,12 @@ var config = {
 
 
 ```
-   alfresco.createFolderPromise( nodeRef, 'test', 'test-title' , 'test-description').then( function(result){
+   alfresco.createFolderPromise( parentNodeRef, 'name', 'titlw' , 'description').then( function(result){
      console.log(result);
    },function(err){console.log(err)});
  })
- ```
+```
+
 
 ## create file site via API
 
@@ -70,7 +83,8 @@ var config = {
       console.log(result);
    },function(err){console.log(err)});
  })
- ```
+
+```
 
 
 ## Logout ticket
@@ -79,7 +93,7 @@ var config = {
    alfresco.logout(function(result){
     console.log(result);
    });
-   ```
+```
 
 
 # Use cases
